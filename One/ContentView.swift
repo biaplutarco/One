@@ -10,7 +10,44 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, World!")
+        VStack(spacing: 30) {
+            List {
+                Section(header: ListHeader()) {
+                    Text("New word")
+                    Text("New word")
+                    Text("New word")
+                    Text("New word")
+                }
+            }
+            .listStyle(GroupedListStyle())
+            .cornerRadius(10)
+            
+            Button(action: {
+                print("did tap button")
+            }) {
+                HStack {
+                    Spacer()
+                    Text("New word")
+                        .bold()
+                        .padding()
+                        .foregroundColor(Color.white)
+                    Spacer()
+                }
+                
+            }
+            .background(Color.green)
+            .cornerRadius(8)
+        }
+        .padding()
+    }
+    
+    struct ListHeader: View {
+        var body: some View {
+            HStack {
+                Image(systemName: "bookmark.fill")
+                Text("Words that you discovered")
+            }
+        }
     }
 }
 
